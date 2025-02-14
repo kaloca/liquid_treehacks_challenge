@@ -25,7 +25,7 @@ Talk to us for more ideas.
 
 ## Challenge 2: Operator Optimization
 
-This challenges tests your ability to think cross-functionally between numerics and hardware. You will be optimizing some core computational primitives used in the design space of Liquid AI models, as described in the opening presentation.
+This challenges tests your ability to think cross-functionally across numerics and hardware. You will be optimizing some core computational primitives used in the design space of Liquid AI models, as described in the opening presentation.
 
 Throughout this challenge, [Executorch](https://github.com/pytorch/executorch) will be your friend. We will be using Executorch to transform PyTorch and / or C++ kernels into a representation that can be run on our target device: Samsung Galaxy S24 Ultra.
 
@@ -33,7 +33,7 @@ It could be useful to keep the following resources open as you get started:
 * Tutorial on exporting models and operators: [tutorial](https://pytorch.org/executorch/stable/tutorials/export-to-executorch-tutorial.html)
 * Docs on kernel registration: [docs](https://pytorch.org/executorch/stable/kernel-library-custom-aten-kernel.html#custom-ops-api-best-practices)
 
-Any optimization is allowed as long as (a) the results are numerically correct (absolute tolerance of 1e-3 on random inputs) and (b) the custom operator can be run via our profiling [script](TODO) directly on device (one of the Samsung Galaxy S24 Ultra phones provided by the team).
+Any optimization is allowed as long as (a) the results are numerically correct (absolute tolerance of 1e-3 on random inputs) and (b) the custom operator can be run via our profiling [script](pte_android.py) directly on device (one of the Samsung Galaxy S24 Ultra phones provided by the team).
 
 See below for more details on how submissions will be scored.
 
