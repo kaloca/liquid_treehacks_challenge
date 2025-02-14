@@ -1,0 +1,83 @@
+# -----------------------------------------------------------------------------
+# build tools
+# must be in sync with vendor/executorch/install_requirements.py
+# -----------------------------------------------------------------------------
+-r requirements-cmake.txt
+pip>=23
+pyyaml==6.0.2
+setuptools>=63
+tomli==2.2.1
+wheel
+zstd==1.5.6.1
+
+# -----------------------------------------------------------------------------
+# torch and its deps
+# must be in sync with vendor/executorch/install_requirements.py
+# -----------------------------------------------------------------------------
+transformers==4.46.1
+torchsr
+# later index wins, liquid is later
+--extra-index-url https://download.pytorch.org/whl/nightly/cpu
+torch==2.6.0.dev20250104 
+torchvision==0.22.0.dev20250104
+torchaudio==2.6.0.dev20250104
+
+# -----------------------------------------------------------------------------
+# export related
+# must be in sync with vendor/executorch/examples/models/llama/install_requirements.sh
+# Note: torchao is installed as a follow up step
+# -----------------------------------------------------------------------------
+snakeviz==2.2.2
+sentencepiece==0.2.0
+lm_eval==0.4.5
+tiktoken==0.8.0
+blobfile==3.0.0
+# Restore numpy if >= 2.0
+numpy==1.21.3; python_version == '3.10'
+numpy<2.0; python_version >= '3.11'
+# to preserve the numpy version
+scipy==1.9; python_version == '3.10'
+scipy==1.13; python_version >= '3.11'
+
+# indirect deps, but important enough to be pinned
+safetensors==0.5.1
+tokenizers==0.20.3
+
+# -----------------------------------------------------------------------------
+# v2 deps
+# -----------------------------------------------------------------------------
+hydra-core==1.3.2
+omegaconf
+pytest==8.3.4
+einops==0.8.0
+wandb==0.19.1
+
+
+
+
+# -----------------------------------------------------------------------------
+# encryption
+# -----------------------------------------------------------------------------
+pycryptodome==3.21.0
+boto3==1.35.88
+
+# -----------------------------------------------------------------------------
+# benchmark
+# -----------------------------------------------------------------------------
+# formatting
+rich==13.9.4
+
+# -----------------------------------------------------------------------------
+# executorch wheel, from vendor/executorch/pyproject.toml
+# -----------------------------------------------------------------------------
+expecttest
+flatbuffers
+hypothesis
+parameterized
+pytest
+pytest-xdist
+ruamel.yaml
+
+memory_profiler
+ipykernel
+matplotlib

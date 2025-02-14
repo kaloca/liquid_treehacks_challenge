@@ -1,0 +1,4 @@
+# this dependencies require the torch to be installed first
+
+# relative to the root
+vendor/executorch/third-party/ao/
