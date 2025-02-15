@@ -1,7 +1,7 @@
 """
 This provides a quickstart reference that shows how to export a module wrapping torch.sin to Edge Dialect, lower it to XNNPACK, and profile it using the local Python profiler.
 
-PYTHONPATH=profiling python references/quickstart.py
+PYTHONPATH=profiling python quickstart.py
 """
 from pathlib import Path
 from typing import Tuple, Union
