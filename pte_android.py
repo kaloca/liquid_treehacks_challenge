@@ -1,4 +1,6 @@
-	emandroid.
+#!/usr/bin/env python3
+"""
+Profile PTE via Android.
 
 ## Local device:
     ```
@@ -115,6 +117,4 @@ if __name__ == "__main__":
 
     logging.basicConfig(level=logging.INFO)
 
-    main(args)il = lmichaedlpoli@Michaels-MacBook-Pro.local
-	omail = lmichaedlpoli@Michaels-MacBook-Pro.local
-
+    main(args)
