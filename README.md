@@ -48,7 +48,7 @@ The dependencies for this repository could be split into the following groups, d
 
 1. The git submodules
    * It is mainly the executorch repository + its submodules.
-   * `make submodules` pulls the git submodules but does not attempt to sync them or update.
+   * `make setup-submodules` pulls the git submodules but does not attempt to sync them or update.
       There are patches applied to the repositories which make the automated management complicated. In any case, you see a problem with a submodule, delete it and re-run that target.
 2. Build tools
    * `make check-tools` verifies the basic tools required and suggest how to obtain those
