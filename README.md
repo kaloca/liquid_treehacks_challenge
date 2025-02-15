@@ -69,6 +69,8 @@ With your preferred virtual environment (e.g., with conda `conda create -n treeh
 make setup
 ```
 
+If `make setup-submodules` fails for you, another option is to clone executorch and move it to `vendor/executorch` before calling `make setup` again.
+
 To customize your executorch build, refer to this [page](https://pytorch.org/executorch/main/getting-started-setup.html). Our setup step will automatically install Executorch with XNNPACK backend enabled (which could be useful to you). If you don't need the backend, you can also install the wheels with pip.
 
 ### Running PTEs 
