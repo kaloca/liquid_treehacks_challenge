@@ -21,7 +21,7 @@ from executorch.exir.backend.test.backend_with_compiler_demo import (  # noqa
     BackendWithCompilerDemo,
 )
 from executorch.devtools import Inspector
-from profiler import Profiler, ProfilingResults, extract_stats
+from profiling.profiler import Profiler, ProfilingResults, extract_stats
 
 
 class LocalPyProfiler(Profiler):
@@ -112,29 +112,57 @@ class LowerableModule(nn.Module):
     def forward(self, x):
         return torch.sin(x)
 
+import fused_fftconv  # Import your compiled extension
+class FFTConvModule(nn.Module):
+    def __init__(self):
+        super().__init__()
 
-# Export and lower the module to Edge Dialect
-example_args = (torch.randn(128, dtype=torch.float32),)
+    def forward(self, x, filter):
+        out = torch.empty(x.shape, dtype=x.dtype, device=x.device)
+        torch.ops.fftconv.fused_fftconv.out(x, filter, out=out)  # Call the out= variant
+        return out
 
-module = LowerableModule()
-aten_dialect_program: ExportedProgram = export(module, example_args)
+def run():
+    # Example input
+    B, C, N, K = 4, 8, 128, 32  # Adjust as needed
+    example_input = torch.randn(B, C, N, dtype=torch.float32)
+    example_filter = torch.randn(C, K, dtype=torch.float32)
 
-edge_config = get_xnnpack_edge_compile_config()
-edge_program: EdgeProgramManager = to_edge(aten_dialect_program, compile_config=edge_config)
-
-# Lower the module
-edge_manager_to_backend: LoweredBackendModule = edge_program.to_backend(XnnpackPartitioner())
-print(edge_manager_to_backend)
-et_program = edge_manager_to_backend.to_executorch()
-print(et_program)
-
-# Serialize and save it to a file   
-save_path = "delegate.pte"
-with open(save_path, "wb") as f:
-    f.write(et_program.buffer)
+    from kernels.test_models import WinogradConvModule
 
 
-pte_runner_path = os.environ.get("PTE_RUNNER_PATH", 'runner/macos-arm64/pte_runner')
-profiler = LocalPyProfiler(pte_runner_path)
-profiling_result = profiler.profile(save_path, example_args, repeats=4)
-print(profiling_result)
+    # Instantiate module
+    module = FFTConvModule()
+
+    B, C, N, K = 4, 8, 128, 32  # Adjust as needed
+    example_input = torch.randn(B, C, N, dtype=torch.float32)
+    example_filter = torch.randn(C, K, dtype=torch.float32)
+
+    # Instantiate module
+    module = WinogradConvModule()
+    example_args = (example_input, example_filter)
+    # Export and lower the module to Edge Dialect
+    # example_args = (torch.randn(128, dtype=torch.float32),)
+    example_args = (example_input, example_filter)
+    # module = LowerableModule()
+    aten_dialect_program: ExportedProgram = export(module, example_args)
+
+    edge_config = get_xnnpack_edge_compile_config()
+    edge_program: EdgeProgramManager = to_edge(aten_dialect_program, compile_config=edge_config)
+
+    # Lower the module
+    edge_manager_to_backend: LoweredBackendModule = edge_program.to_backend(XnnpackPartitioner())
+    print(edge_manager_to_backend)
+    et_program = edge_manager_to_backend.to_executorch()
+    print(et_program)
+
+    # Serialize and save it to a file   
+    save_path = "test.pte"
+    with open(save_path, "wb") as f:
+        f.write(et_program.buffer)
+
+
+    pte_runner_path = os.environ.get("PTE_RUNNER_PATH", 'runner/linux/pte_runner')
+    profiler = LocalPyProfiler(pte_runner_path)
+    profiling_result = profiler.profile(save_path, example_args, repeats=4)
+    print(profiling_result)

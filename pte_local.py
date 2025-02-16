@@ -17,7 +17,7 @@ import pprint
 
 import torch
 
-from local_profiler import LocalPyProfiler
+from quickstart import LocalPyProfiler
 
 
 def main(args):

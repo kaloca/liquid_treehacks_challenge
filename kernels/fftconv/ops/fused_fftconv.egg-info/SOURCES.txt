@@ -1,0 +1,6 @@
+fftconv.cpp
+setup.py
+fused_fftconv.egg-info/PKG-INFO
+fused_fftconv.egg-info/SOURCES.txt
+fused_fftconv.egg-info/dependency_links.txt
+fused_fftconv.egg-info/top_level.txt

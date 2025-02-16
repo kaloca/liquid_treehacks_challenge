@@ -1,0 +1,14 @@
+# ninja log v6
+0	15269	1739687041688913590	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+12	16503	1739696114181770262	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+12	16191	1739696484465516429	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+7	16848	1739696609171259085	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+12	16720	1739696881104108935	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+7	16512	1739697072116686335	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+11	16329	1739697327708869587	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+10	16599	1739697610312185047	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+10	16615	1739697685919062419	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+8	15789	1739698209916835813	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+9	18208	1739699487771324633	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+9	17225	1739699511492394342	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e
+12	16363	1739700181789542063	/home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o	5d4542269fb5be2e

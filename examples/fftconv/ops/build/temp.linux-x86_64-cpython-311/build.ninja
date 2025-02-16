@@ -1,0 +1,24 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/home/kaloca/Stanford/treehacks25/treehacks_challenge/env/lib/python3.11/site-packages/torch/include -I/home/kaloca/Stanford/treehacks25/treehacks_challenge/env/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/kaloca/Stanford/treehacks25/treehacks_challenge/env/include -I/home/kaloca/.pyenv/versions/3.11.11/include/python3.11 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1016"' -DTORCH_EXTENSION_NAME=fused_fftconv -D_GLIBCXX_USE_CXX11_ABI=1 -std=c++17
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+
+
+build /home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/build/temp.linux-x86_64-cpython-311/fftconv.o: compile /home/kaloca/Stanford/treehacks25/treehacks_challenge/examples/fftconv/ops/fftconv.cpp
+
+
+
+
+
+
