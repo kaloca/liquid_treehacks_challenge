@@ -30,7 +30,7 @@ at::Tensor fused_fftconv(const at::Tensor& input, const at::Tensor& filter) {
 }
 
 // ---------------------------------------------------------------------
-// 2) Meta “shape-only” kernel
+// 2) Meta "shape-only" kernel
 // ---------------------------------------------------------------------
 at::Tensor fused_fftconv_meta(const at::Tensor& input, const at::Tensor& filter) {
     // same shape checks (ideally keep them consistent)
@@ -69,10 +69,11 @@ TORCH_LIBRARY_IMPL(fftconv, Meta, m) {
     m.impl("fused_fftconv", fused_fftconv_meta);
 }
 
+#ifdef EXECUTORCH_LIBRARY
 // ---------------------------------------------------------------------
 // 5) Executorch Implementation
 // ---------------------------------------------------------------------    
-
 EXECUTORCH_LIBRARY(fftconv, m) {
     m.impl("fused_fftconv", fused_fftconv);
 }
+#endif // EXECUTORCH_LIBRARY
