@@ -1,28 +1,5 @@
 # Liquid AI: TreeHacks Challenges 🌲🌲
 
-## Challenge 1: AI on the Edge
-
-Build demos of AI models running on the edge. We're looking for creative use of limited hardware resources, whether that's running on a Raspberry Pi or a phone or a laptop. Bonus points for going off the beaten path and working on architectures that are not natively supported on existing frameworks.
-
- We do not provide devices for this challenge.
-
-Here are some resources to get started:
-* [llama.cpp](https://github.com/ggerganov/llama.cpp)
-* [Executorch](https://github.com/pytorch/executorch)
-
-and some interesting smaller open-source models to build demos with and deploy:
-* [Diffusion (linear attention): Sana](https://github.com/NVlabs/Sana)
-* [Language models: Llama 3.2 (your safe bet)](https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/)
-* [Language models: StripedHyena (convolution-attention hybrid)](https://github.com/togethercomputer/stripedhyena)
-* [Distilled reasoning: DeepSeek R1-Distill](https://github.com/deepseek-ai/deepseek-r1)
-* [Audio: WhisperX](https://github.com/m-bain/whisperx)
-* [Audio: Zonos (available as both Transformer and linear attention-attention hybrid)](https://huggingface.co/Zyphra/Zonos-v0.1-transformer)
-* [Protein language models: ESM 2](https://github.com/facebookresearch/esm)
-* [Diffusion models: StableDiffusion](https://github.com/Anthrapper/On-Device-Stable-Diffusion)
-* [Genome generation: Evo](https://huggingface.co/togethercomputer/evo-1-131k-base)
-
-Talk to us for more ideas.
-
 ## Challenge 2: Operator Optimization
 
 This challenges tests your ability to think cross-functionally across numerics and hardware. You will be optimizing some core computational primitives used in the design space of Liquid AI models, as described in the opening presentation.
